@@ -33,7 +33,8 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="name" value="Name" />
+                <!-- <InputLabel for="name" value="Name" /> -->
+                <label>{{ $t('message.name') }}</label>
                 <TextInput
                     id="name"
                     v-model="form.name"
@@ -47,7 +48,8 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="email" value="Email" />
+                <!-- <InputLabel for="email" value="Email" /> -->
+                <label>{{ $t('message.email') }}</label>
                 <TextInput
                     id="email"
                     v-model="form.email"
@@ -59,7 +61,8 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password" value="Password" />
+                <!-- <InputLabel for="password" value="Password" /> -->
+                <label>{{ $t('message.password') }}</label>
                 <TextInput
                     id="password"
                     v-model="form.password"
@@ -72,7 +75,8 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
+                <!-- <InputLabel for="password_confirmation" value="Confirm Password" /> -->
+                <label>{{ $t('message.confirm_pw') }}</label>
                 <TextInput
                     id="password_confirmation"
                     v-model="form.password_confirmation"
@@ -90,7 +94,7 @@ const submit = () => {
                         <Checkbox id="terms" v-model:checked="form.terms" name="terms" required />
 
                         <div class="ml-2">
-                            I agree to the <a target="_blank" :href="route('terms.show')" class="underline text-sm text-gray-600 hover:text-gray-900">Terms of Service</a> and <a target="_blank" :href="route('policy.show')" class="underline text-sm text-gray-600 hover:text-gray-900">Privacy Policy</a>
+                            {{ $t('message.aggre') }} <a target="_blank" :href="route('terms.show')" class="underline text-sm text-gray-600 hover:text-gray-900">{{ $t('message.tos') }}</a> {{ $t('message.and') }} <a target="_blank" :href="route('policy.show')" class="underline text-sm text-gray-600 hover:text-gray-900">{{ $t('message.policy') }}</a>
                         </div>
                     </div>
                     <InputError class="mt-2" :message="form.errors.terms" />
@@ -99,11 +103,11 @@ const submit = () => {
 
             <div class="flex items-center justify-end mt-4">
                 <Link :href="route('login')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Already registered?
+                    {{ $t('message.registered') }}
                 </Link>
 
                 <PrimaryButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Register
+                    {{ $t('message.register') }}
                 </PrimaryButton>
             </div>
         </form>
